@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Hello World with AngularJS</title>
+    <!-- AngularJS v1.4.8 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
-<body>
+<body ng-controller="MainController">
     <h1>Hello, World!</h1>
-    <p>This is my first paragraph.</p>
+    <p>Welcome to my first website hosted on GitHub Pages.</p>
+
+    <!-- Button to increase counter -->
+    <button ng-click="increaseCounter()">Click Me</button>
+    <p>Button clicked: {{ counter }} times</p>
+
+    <script>
+        // Define AngularJS application
+        angular.module('myApp', [])
+            .controller('MainController', ['$scope', function($scope) {
+                // Initialize counter
+                $scope.counter = 0;
+
+                // Function to increase counter and log it to console
+                $scope.increaseCounter = function() {
+                    $scope.counter++;
+                    console.log('Button clicked:', $scope.counter);
+                };
+            }]);
+    </script>
 </body>
 </html>
